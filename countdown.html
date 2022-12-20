@@ -1,0 +1,49 @@
+<!DOCTYPE html> 
+  <html>
+    <head>
+      <title>Countdown</title>
+      <link href="styles.css" rel="stylesheet" type="text/css" />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <script>
+            var end = new Date('01/20/2023 11:59 PM');
+            
+                var _second = 1000;
+                var _minute = _second * 60;
+                var _hour = _minute * 60;
+                var _day = _hour * 24;
+                var timer;
+            
+                function showRemaining() {
+                    var now = new Date();
+                    var distance = end - now;
+                    if (distance < 0) {
+            
+                        clearInterval(timer);
+                        document.getElementById('countdown').innerHTML = 'FINI!';
+            
+                        return;
+                    }
+                    var days = Math.floor(distance / _day);
+                    var hours = Math.floor((distance % _day) / _hour);
+                    var minutes = Math.floor((distance % _hour) / _minute);
+                    var seconds = Math.floor((distance % _minute) / _second);
+            
+                    document.getElementById('countdown').innerHTML = days + ' Jours, <br/>';
+                    document.getElementById('countdown').innerHTML += hours + ' Heures, <br/>';
+                    document.getElementById('countdown').innerHTML += minutes + ' Minutes, <br>';
+                    document.getElementById('countdown').innerHTML += seconds + ' Secondes. <br>';
+                }
+            
+                timer = setInterval(showRemaining, 1000);
+            </script>
+            <h1>
+              <p1>Il reste</p1>
+            <div id="countdown"></div>   
+            
+            <p1>© Tim Haller 2021</p1>
+    
+    </h1>
+    </body>
+  </html>
